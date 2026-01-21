@@ -24,9 +24,3 @@ func main() {
 	}
 
 }
-
-func greetingHandler(w http.ResponseWriter, r *http.Request) {
-	var greeting = "Hello World!"
-	fmt.Fprintln(w, greeting)
-
-}
