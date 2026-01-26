@@ -18,6 +18,7 @@ func authHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content_type", "application/json")
 
 	var user User
+
 	json.NewDecoder(r.Body).Decode(&user)
 	fmt.Printf("The user request value %v", user)
 
@@ -59,6 +60,6 @@ func queryHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	query := AccessData()
-	fmt.Fprint(w, query)
+	json.NewEncoder(w).Encode(query)
 
 }

@@ -5,9 +5,9 @@ import (
 )
 
 // The function responsible for connecting to the DB and read a required data
-func AccessData() string {
+func AccessData() User {
 	var db *sql.DB
-	var query string = ""
+	var query User
 	// Open database connection
 
 	db, err := sql.Open("mysql", "root:death notemysql@tcp(127.0.0.1:3306)/usersdb")
@@ -32,7 +32,8 @@ func AccessData() string {
 		}
 
 		//in real-world scenarois this data must be encrypted
-		query = (user.Name + user.Password)
+		query.Name = user.Name
+		query.Password = user.Password
 	}
 	return query
 }
